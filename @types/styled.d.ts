@@ -9,7 +9,7 @@ export interface ColorRange {
   600: string;
 }
 
-export interface ElevationOverlay {
+export interface ElevationVariant {
   00: string;
   01: string;
   02: string;
@@ -22,10 +22,29 @@ export interface ElevationOverlay {
   24: string;
 }
 
+interface ElementState {
+  hover: string;
+  focused: string;
+  dragged: string;
+  selected: string;
+}
+interface OverlayStates {
+  primary: ElementState;
+  white: ElementState;
+}
+
+interface Emphasis {
+  high: string;
+  medium: string;
+  disabled: string;
+}
+
 declare module 'styled-components' {
   export interface DefaultTheme {
     background: string;
-    surfaces: ElevationOverlay;
+    surfaces: ElevationVariant;
+    elevation: ElevationVariant;
+    overlay: OverlayStates;
     colors: {
       gray: ColorRange;
       blue: ColorRange;
@@ -36,6 +55,7 @@ declare module 'styled-components' {
       red: ColorRange;
       yellow: ColorRange;
       green: ColorRange;
+      onSurface: Emphasis;
     };
   }
 }

@@ -1,7 +1,7 @@
 import type { DefaultTheme } from 'styled-components';
-import type { ElevationOverlay } from '../@types/styled';
+import type { ElevationVariant, OverlayStates } from '../@types/styled';
 
-const surfaces: ElevationOverlay = {
+const surfaces: ElevationVariant = {
   '0': '#121212',
   '1': 'linear-gradient(0deg, #E5E5E5, #E5E5E5), #121212',
   '2': 'linear-gradient(0deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07)), #121212',
@@ -14,10 +14,45 @@ const surfaces: ElevationOverlay = {
   '24': 'linear-gradient(0deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16)), #121212',
 };
 
+const elevation: ElevationVariant = {
+  '0': '0px 4px 4px rgba(0, 0, 0, 0.25)',
+  '1': '0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2)',
+  '2': '0px 2px 2px rgba(0, 0, 0, 0.14), 0px 3px 1px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2)',
+  '3': '0px 3px 4px rgba(0, 0, 0, 0.14), 0px 3px 3px rgba(0, 0, 0, 0.12), 0px 1px 8px rgba(0, 0, 0, 0.2)',
+  '4': '0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2)',
+  '6': '0px 6px 10px rgba(0, 0, 0, 0.14), 0px 1px 18px rgba(0, 0, 0, 0.12), 0px 3px 5px rgba(0, 0, 0, 0.2)',
+  '8': '0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 5px 5px rgba(0, 0, 0, 0.2)',
+  '12': '0px 12px 17px rgba(0, 0, 0, 0.14), 0px 5px 22px rgba(0, 0, 0, 0.12), 0px 7px 8px rgba(0, 0, 0, 0.2)',
+  '16': '0px 16px 24px rgba(0, 0, 0, 0.14), 0px 6px 30px rgba(0, 0, 0, 0.12), 0px 8px 10px rgba(0, 0, 0, 0.2)',
+  '24': '0px 24px 38px rgba(0, 0, 0, 0.14), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 11px 15px rgba(0, 0, 0, 0.2)',
+};
+
+const overlay: OverlayStates = {
+  primary: {
+    hover: 'rgba(104, 178, 255, 0.04)',
+    focused: 'rgba(104, 178, 255, 0.12)',
+    dragged: 'rgba(104, 178, 255, 0.12)',
+    selected: 'rgba(104, 178, 255, 0.08)',
+  },
+  white: {
+    hover: 'rgba(255, 255, 255, 0.04)',
+    focused: 'rgba(255, 255, 255, 0.12)',
+    dragged: 'rgba(255, 255, 255, 0.12)',
+    selected: 'rgba(255, 255, 255, 0.08)',
+  },
+};
+
 const darkTheme: DefaultTheme = {
   background: '#23242C',
   surfaces,
+  elevation,
+  overlay,
   colors: {
+    onSurface: {
+      high: 'rgba(255, 255, 255, 0.87)',
+      medium: 'rgba(255, 255, 255, 0.6)',
+      disabled: 'rgba(255, 255, 255, 0.38)',
+    },
     gray: {
       '100': '#303236',
       '200': '#262A2D',

@@ -13,4 +13,7 @@ export default create({
   textColor: 'black',
   barTextColor: 'white',
   barBg: '#3690FF',
+
+  //Typography
+  fontBase: '"Poppins", sans-serif',
 });

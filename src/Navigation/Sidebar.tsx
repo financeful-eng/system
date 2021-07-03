@@ -13,41 +13,40 @@ const Container = styled.div`
   height: 100vh;
   overflow-y: auto;
   box-shadow: ${({ theme }) => theme.elevation[16]};
-  background: ${({ theme }) => theme.surfaces[16]};
+  /* background: ${({ theme }) => theme.surfaces[16]}; */
+  background: ${({ theme }) => theme.colors.gray[500]};
 `;
 
 const Brand = styled.div`
-  padding: 8px;
+  max-height: 56px;
   height: 56px;
 `;
 
 const Footer = styled.div`
-  padding: 8px;
+  max-height: 56px;
   height: 56px;
 `;
 
-const Nav = styled.nav`
-  padding: 8px 0;
-`;
-
-const Section = styled.div`
+export const Section = styled.div`
   width: 100%;
 `;
 
-interface SidebarProps {
+export interface ChildrenProps {
   children: React.ReactNode;
 }
 
-function Sidebar({ children }: SidebarProps) {
-  return (
-    <Container>
-      <Section>
-        <Brand>financeful</Brand>
-        <nav>{children}</nav>
-      </Section>
-      <Footer>Footer</Footer>
-    </Container>
-  );
+export function SidebarSection({ children }: ChildrenProps) {
+  return <Section>{children}</Section>;
 }
 
-export default Sidebar;
+export function SidebarBrand({ children }: ChildrenProps) {
+  return <Brand>{children}</Brand>;
+}
+
+export function SidebarFooter({ children }: ChildrenProps) {
+  return <Footer>{children}</Footer>;
+}
+
+export function Sidebar({ children }: ChildrenProps) {
+  return <Container>{children}</Container>;
+}

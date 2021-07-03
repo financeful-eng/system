@@ -1,0 +1,16 @@
+import { create } from '@storybook/theming';
+
+export default create({
+  base: 'light',
+  colorPrimary: '#3690FF',
+  colorSecondary: '#a536ff',
+
+  //UI
+  appBG: 'white',
+  appContentBg: '#292929',
+
+  // Text Colors
+  textColor: 'black',
+  barTextColor: 'white',
+  barBg: '#3690FF',
+});

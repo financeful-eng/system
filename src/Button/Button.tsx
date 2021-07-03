@@ -7,7 +7,7 @@ export interface ButtonProps {
 }
 
 const StyledButton = styled.button`
-  background: ${(props) => props.theme.colors.red['100']};
+  background: ${(props) => props.theme.surfaces[0]};
   border: 1px solid ${(props) => props.theme.colors.blue['500']};
 `;
 

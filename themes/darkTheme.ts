@@ -1,6 +1,22 @@
 import type { DefaultTheme } from 'styled-components';
+import type { ElevationOverlay } from '../@types/styled';
+
+const surfaces: ElevationOverlay = {
+  '0': '#121212',
+  '1': 'linear-gradient(0deg, #E5E5E5, #E5E5E5), #121212',
+  '2': 'linear-gradient(0deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07)), #121212',
+  '3': 'linear-gradient(0deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), #121212',
+  '4': 'linear-gradient(0deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09)), #121212',
+  '6': 'linear-gradient(0deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.11)), #121212',
+  '8': 'linear-gradient(0deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)), #121212',
+  '12': 'linear-gradient(0deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.14)), #121212',
+  '16': 'linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), #121212',
+  '24': 'linear-gradient(0deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16)), #121212',
+};
 
 const darkTheme: DefaultTheme = {
+  background: '#23242C',
+  surfaces,
   colors: {
     gray: {
       '100': '#303236',

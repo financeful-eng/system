@@ -1,0 +1,60 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "ignorePatterns": [
+    "node_modules",
+    ".cache",
+    "coverage/**/*",
+    "docs/public/**/*",
+    "dist/**/*",
+    "lib/**/*",
+    "lib-*/**/*",
+    "types/**/*"
+  ],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "react/prop-types": 0,
+    "react/display-name": 0,
+    "react-hooks/exhaustive-deps": "error"
+  },
+  "overrides": [
+    {
+      "parserOptions": {
+        "project": "tsconfig.json"
+      },
+      "files": ["**/*.ts", "**/*.tsx"],
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": 2,
+        "@typescript-eslint/no-unnecessary-condition": 2,
+        "@typescript-eslint/explicit-module-boundary-types": 0,
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "^_"
+          }
+        ]
+      }
+    }
+  ]
+}

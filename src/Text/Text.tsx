@@ -15,6 +15,7 @@ type TextVariants =
   | 'button'
   | 'caption'
   | 'overline';
+
 type ColorVariants = 'high' | 'medium' | 'disabled';
 
 export interface TextProps {

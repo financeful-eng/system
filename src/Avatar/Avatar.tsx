@@ -27,14 +27,16 @@ const AvatarBody = styled.div`
 
 export interface AvatarProps {
   onClick?: () => void;
+  name: string;
 }
 
-function Avatar() {
+function Avatar({ name, onClick }: AvatarProps) {
+  const letter = name.length > 1 ? name.split('')[0] : name;
   return (
-    <AvatarRoot>
+    <AvatarRoot onClick={onClick}>
       <AvatarBody>
         <Text variant="h6" emphasis="high" as="span">
-          A
+          {letter}
         </Text>
       </AvatarBody>
     </AvatarRoot>

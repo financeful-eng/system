@@ -7,6 +7,11 @@ export default {
   component: Avatar,
 } as ComponentMeta<typeof Avatar>;
 
-const Template: ComponentStory<typeof Avatar> = (args) => <Avatar />;
+const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 
 export const Default = Template.bind({});
+
+Default.args = {
+  name: 'Financeful',
+  onClick: () => alert('onClick!'),
+};

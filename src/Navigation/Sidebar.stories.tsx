@@ -13,15 +13,15 @@ const Template: ComponentStory<typeof Sidebar> = (args) => (
     <SidebarSection>
       <SidebarBrand>Financeful</SidebarBrand>
       <nav>
-        <SidebarItem icon={MdDashboard} as="a" href="" />
-        <SidebarItem icon={MdDashboard} className="active" />
-        <SidebarItem icon={MdDashboard} />
-        <SidebarItem icon={MdDashboard} />
-        <SidebarItem icon={MdDashboard} />
+        <SidebarItem icon={MdDashboard} text="Dashboard" />
+        <SidebarItem icon={MdDashboard} text="Transactions" />
+        <SidebarItem icon={MdDashboard} text="My Wallet" />
+        <SidebarItem icon={MdDashboard} text="Settings" />
+        <SidebarItem icon={MdDashboard} text="Profile" />
       </nav>
     </SidebarSection>
     <SidebarFooter>Footer</SidebarFooter>
   </Sidebar>
 );
 
-export const MainSidebar = Template.bind({});
+export const Default = Template.bind({});

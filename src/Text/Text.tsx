@@ -55,7 +55,7 @@ const StyledText = styled.div<{ $variant: TextVariants; $emphasis: ColorVariants
         `;
       case 'h3':
         return `
-        font-size: 48px;
+          font-size: 48px;
           font-weight: light;
           letter-spacing: 0;
         `;
@@ -67,7 +67,7 @@ const StyledText = styled.div<{ $variant: TextVariants; $emphasis: ColorVariants
         `;
       case 'h5':
         return `
-        font-size: 24px;
+          font-size: 24px;
           font-weight: 400;
           letter-spacing: 0;
         `;
@@ -77,6 +77,48 @@ const StyledText = styled.div<{ $variant: TextVariants; $emphasis: ColorVariants
           font-weight: 500;
           letter-spacing: 0.15%;
         `;
+      case 'subtitle1':
+        return `
+          font-size: 16px;
+          font-weight: 400;
+          letter-spacing: 0.15%;
+        `;
+      case 'subtitle2':
+        return `
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 0.1%;
+        `;
+      case 'body1':
+        return `
+          font-size: 16px;
+          font-weight: 400;
+          letter-spacing: 0.5%;
+        `;
+      case 'body2':
+        return `
+          font-size: 14px;
+          font-weight: 400;
+          letter-spacing: 0.25%;
+        `;
+      case 'button':
+        return `
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 1.25%;
+          text-transform: uppercase
+        `;
+      case 'caption':
+        return ` 
+          font-size: 12px;
+          font-weight: 400;
+          letter-spacing: 0.4%;
+    `;
+      case 'overline':
+        return `
+          font-size: 10px;
+          font-weight: 400;
+          letter-spacing: 1.5%;`;
     }
   }}
 `;

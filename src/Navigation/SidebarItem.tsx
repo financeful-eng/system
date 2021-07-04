@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Text } from '../Text';
 
 const Styles = styled.div`
   height: 40px;
@@ -30,6 +31,7 @@ const Styles = styled.div`
 
 export interface SidebarItemProps<T extends React.ElementType = React.ElementType> {
   icon: React.ComponentType<{ className?: string }>;
+  text: string;
   onClick?: () => void;
   className?: string;
   as?: T;
@@ -44,6 +46,7 @@ function SidebarItem<T extends React.ElementType = typeof defaultElement>({
   icon: IconComp,
   onClick,
   className,
+  text,
   as,
 }: ItemProps<T>) {
   const Comp = as || 'div';
@@ -51,7 +54,9 @@ function SidebarItem<T extends React.ElementType = typeof defaultElement>({
     <Styles className={className} onClick={onClick}>
       <Comp className="Item-Comp">
         <IconComp className="SidebarItem-icon" />
-        Nav Item
+        <Text variant="subtitle2" emphasis="medium" as="span">
+          {text}
+        </Text>
       </Comp>
     </Styles>
   );

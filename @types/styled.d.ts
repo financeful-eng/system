@@ -22,6 +22,14 @@ export interface ElevationVariant {
   24: string;
 }
 
+export interface Devices {
+  mobile: string;
+  tabletSmall: string;
+  tabletLarge: string;
+  laptop: string;
+  desktop: string;
+}
+
 interface ElementState {
   hover: string;
   focused: string;
@@ -45,6 +53,7 @@ declare module 'styled-components' {
     surfaces: ElevationVariant;
     elevation: ElevationVariant;
     overlay: OverlayStates;
+    devices: Devices;
     colors: {
       gray: ColorRange;
       blue: ColorRange;

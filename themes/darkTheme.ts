@@ -1,5 +1,13 @@
 import type { DefaultTheme } from 'styled-components';
-import type { ElevationVariant, OverlayStates } from '../@types/styled';
+import type { ElevationVariant, OverlayStates, Devices } from '../@types/styled';
+
+const devices: Devices = {
+  mobile: '(max-width: 599px)',
+  tabletSmall: '(min-width:600px) and (max-width: 904px)',
+  tabletLarge: '(min-width: 905px) and (max-width: 1239px)',
+  laptop: '(min-width: 1240px) and (max-width: 1439px)',
+  desktop: '(min-width: 1440px)',
+};
 
 const surfaces: ElevationVariant = {
   '0': '#121212',
@@ -47,6 +55,7 @@ const darkTheme: DefaultTheme = {
   surfaces,
   elevation,
   overlay,
+  devices,
   colors: {
     onSurface: {
       high: 'rgba(255, 255, 255, 0.87)',

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Text, TextProps } from '../Text';
 
 const Container = styled.div`
   display: flex;
@@ -25,18 +26,46 @@ const Brand = styled.div`
 const Footer = styled.div`
   max-height: 56px;
   height: 56px;
+  margin-top: 16px;
 `;
 
-export const Section = styled.div`
+export const Content = styled.div`
   width: 100%;
+`;
+
+const LabelContainer = styled.div`
+  padding: 0 16px;
+`;
+
+const Section = styled.div`
+  width: 100%;
+  padding: 8px 0;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.onSurface.disabled};
+  & ${LabelContainer} {
+    padding: 8px 16px;
+  }
 `;
 
 export interface ChildrenProps {
   children: React.ReactNode;
 }
 
+export function SectionLabel({ children }: ChildrenProps) {
+  return (
+    <LabelContainer>
+      <Text variant="button" emphasis="medium" as="h3">
+        {children}
+      </Text>
+    </LabelContainer>
+  );
+}
+
 export function SidebarSection({ children }: ChildrenProps) {
   return <Section>{children}</Section>;
+}
+
+export function SidebarContent({ children }: ChildrenProps) {
+  return <Content>{children}</Content>;
 }
 
 export function SidebarBrand({ children }: ChildrenProps) {

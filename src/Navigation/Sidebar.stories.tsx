@@ -58,7 +58,7 @@ const Template: ComponentStory<typeof Sidebar> = (args) => (
         <Avatar name="Financeful" />
         <div>
           <Text variant="button" emphasis="high" as="p">
-            First and Last name
+            Full name
           </Text>
           <Text variant="button" emphasis="medium" as="p">
             Femail@email.com

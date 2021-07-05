@@ -23,8 +23,12 @@ Error.args = {
   error: true,
   errorMessage: 'This is an error message',
   value: 'With error',
+  label: 'Label',
+  id: 'Error-input',
 };
 
 Default.args = {
   value: '',
+  label: 'Some label',
+  id: 'default-input',
 };

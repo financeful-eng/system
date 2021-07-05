@@ -47,6 +47,14 @@ interface Emphasis {
   disabled: string;
 }
 
+interface Elements {
+  input: string;
+}
+
+interface Text {
+  primary: string;
+}
+
 declare module 'styled-components' {
   export interface DefaultTheme {
     background: string;
@@ -54,6 +62,7 @@ declare module 'styled-components' {
     elevation: ElevationVariant;
     overlay: OverlayStates;
     devices: Devices;
+    text: Text;
     colors: {
       gray: ColorRange;
       blue: ColorRange;
@@ -65,6 +74,7 @@ declare module 'styled-components' {
       yellow: ColorRange;
       green: ColorRange;
       onSurface: Emphasis;
+      elements: Elements;
     };
   }
 }

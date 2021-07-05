@@ -56,7 +56,14 @@ const darkTheme: DefaultTheme = {
   elevation,
   overlay,
   devices,
+  text: {
+    primary: '#ffffff',
+  },
   colors: {
+    elements: {
+      input:
+        'linear-gradient(0deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)), #121212',
+    },
     onSurface: {
       high: 'rgba(255, 255, 255, 0.87)',
       medium: 'rgba(255, 255, 255, 0.6)',

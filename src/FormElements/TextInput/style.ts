@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
 
 export const Input = styled.input<{ error: boolean }>`
+  --error-shadow: 0px 0px 0px 3px rgba(255, 64, 54, 0.4);
+  --shadow: 0px 0px 0px 3px rgba(3, 102, 214, 0.4);
+  --blue: ${({ theme }) => theme.colors.blue[400]};
+  --red: ${({ theme }) => theme.colors.red[300]};
   padding: 8px;
   border-radius: 6px;
   width: 100%;
@@ -16,8 +20,8 @@ export const Input = styled.input<{ error: boolean }>`
 
   &:focus,
   :focus-within {
-    box-shadow: 0px 0px 0px 3px rgba(3, 102, 214, 0.4);
-    border-color: ${({ theme }) => theme.colors.blue[400]};
+    box-shadow: var(--shadow);
+    border-color: var(--blue);
   }
 
   ::placeholder {
@@ -27,8 +31,13 @@ export const Input = styled.input<{ error: boolean }>`
   ${({ error }) =>
     error &&
     css`
-      box-shadow: 0px 0px 0px 3px rgba(255, 64, 54, 0.4);
-      border-color: ${({ theme }) => theme.colors.red[300]};
+      box-shadow: var(--error-shadow);
+      border-color: var(--red);
+      &:focus,
+      :focus-within {
+        box-shadow: var(--error-shadow);
+        border-color: var(--red);
+      }
     `}
 `;
 

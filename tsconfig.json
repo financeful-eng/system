@@ -18,8 +18,8 @@
     "noEmit": true,
     "jsx": "react",
     "types": ["styled-components"],
-    "typeRoots": ["./@types", "node_modules/@types"]
+    "typeRoots": ["src/.types", "node_modules/@types"]
   },
-  "include": ["@types/**/*.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/.types/**/*.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules", "lib"]
 }

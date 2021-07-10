@@ -63,7 +63,7 @@ const darkTheme: DefaultTheme = {
   colors: {
     elements: {
       input:
-        'linear-gradient(0deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)), #201E26',
+        'linear-gradient(0deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.06)), #201E26',
       drawer: '#1D1C22',
       drawerActive: '#27262C',
     },

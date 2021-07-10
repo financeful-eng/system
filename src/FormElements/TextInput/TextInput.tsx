@@ -1,5 +1,5 @@
 import React from 'react';
-import { Root, ElementBase as InputBase, ErrorMessage, Label, Input } from '../style';
+import { ErrorMessage, Input } from './style';
 
 export type ErrorProps =
   | { error?: false; errorMessage?: never }
@@ -10,12 +10,12 @@ export interface TextInputDefaultProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   type?: string;
-  label: string;
   id: string;
   autoFocus?: boolean;
   disabled?: boolean;
   dataId?: string;
   autoComplete?: string;
+  placeholder?: string;
 }
 
 export type TextInputProps = TextInputDefaultProps & ErrorProps;
@@ -31,60 +31,35 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
     type = 'text',
     error: validationError = false,
     errorMessage,
-    label,
     id,
     autoFocus,
     dataId,
     disabled,
     autoComplete,
+    placeholder,
   } = props;
-  const [raiseLabel, setRaiseLabel] = React.useState(false);
-  const [isFocused, setIsFocused] = React.useState(false);
+
   const [error] = React.useState(validationError);
 
-  React.useEffect(() => {
-    if (value.length > 0) {
-      setRaiseLabel(true);
-    }
-  }, [value]);
-
   return (
-    <Root
-      onFocus={() => {
-        setRaiseLabel(true);
-        setIsFocused(true);
-      }}
-      onBlur={() => {
-        if (value.length < 1) {
-          setRaiseLabel(false);
-        }
-        setIsFocused(false);
-      }}
-    >
-      <Label
-        shouldRaise={raiseLabel}
-        isFocused={isFocused}
-        withError={error}
-        htmlFor={id}
-      >
-        {label}
-      </Label>
-      <InputBase withError={error}>
-        <Input
-          value={value}
-          type={type}
-          onChange={onChange}
-          ref={ref}
-          onBlur={onBlur}
-          id={id}
-          data-testid={dataId}
-          disabled={disabled}
-          autoFocus={autoFocus}
-          autoComplete={autoComplete}
-        />
-      </InputBase>
-      {error && <ErrorMessage>{errorMessage}</ErrorMessage>}
-    </Root>
+    <>
+      <Input
+        value={value}
+        type={type}
+        onChange={onChange}
+        ref={ref}
+        onBlur={onBlur}
+        id={id}
+        data-testid={dataId}
+        disabled={disabled}
+        autoFocus={autoFocus}
+        autoComplete={autoComplete}
+        placeholder={placeholder}
+        error={error}
+      />
+
+      {error && <ErrorMessage aria-describedby={id}>{errorMessage}</ErrorMessage>}
+    </>
   );
 });
 

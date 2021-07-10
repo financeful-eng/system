@@ -3,16 +3,16 @@ import styled from 'styled-components';
 import { Text } from '../Text';
 
 const Styles = styled.div`
-  height: 40px;
-  padding: 0 24px;
-  border-left: 2px solid transparent;
-  color: ${({ theme }) => theme.colors.onSurface.medium};
+  height: 36px;
+  border-radius: 6px;
+  width: 208px;
+  color: ${({ theme }) => theme.text.secondary};
   display: flex;
   align-items: center;
   cursor: pointer;
   text-align: center;
   :hover {
-    background: ${({ theme }) => theme.overlay.white.hover};
+    background: ${({ theme }) => theme.colors.elements.drawerActive};
   }
 
   & .SidebarItem-icon {
@@ -21,11 +21,26 @@ const Styles = styled.div`
     width: 24px;
     margin-right: 24px;
     vertical-align: middle;
+    margin-left: 8px;
   }
 
   & .active {
-    border-left-color: ${({ theme }) => theme.colors.blue[400]};
-    background: ${({ theme }) => theme.overlay.white.selected};
+    background: ${({ theme }) => theme.colors.elements.drawerActive};
+  }
+
+  @media ${({ theme }) => theme.devices.tabletSmall},
+    ${({ theme }) => theme.devices.mobile} {
+    width: 40px;
+    & .text {
+      display: none;
+    }
+  }
+
+  @media ${({ theme }) => theme.devices.mobile} {
+    & nav {
+      display: flex;
+      flex-direction: row;
+    }
   }
 `;
 
@@ -54,7 +69,7 @@ function SidebarItem<T extends React.ElementType = typeof defaultElement>({
     <Styles className={className} onClick={onClick}>
       <Comp className="Item-Comp">
         <IconComp className="SidebarItem-icon" />
-        <Text variant="subtitle2" emphasis="medium" as="span">
+        <Text variant="subtitle2" emphasis="secondary" as="span" className="text">
           {text}
         </Text>
       </Comp>

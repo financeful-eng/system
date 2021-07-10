@@ -16,13 +16,14 @@ type TextVariants =
   | 'caption'
   | 'overline';
 
-type ColorVariants = 'high' | 'medium' | 'disabled';
+type ColorVariants = 'high' | 'medium' | 'disabled' | 'secondary';
 
 export interface TextProps {
   variant: TextVariants;
   as: React.ElementType<any>;
   emphasis?: ColorVariants;
   children: React.ReactNode;
+  className?: string;
 }
 
 const handleEmphasis = (val: ColorVariants, theme: DefaultTheme) => {
@@ -33,6 +34,8 @@ const handleEmphasis = (val: ColorVariants, theme: DefaultTheme) => {
       return theme.colors.onSurface.medium;
     case 'disabled':
       return theme.colors.onSurface.disabled;
+    case 'secondary':
+      return theme.text.secondary;
     default:
       return theme.colors.onSurface.medium;
   }
@@ -107,7 +110,6 @@ const StyledText = styled.div<{ $variant: TextVariants; $emphasis: ColorVariants
           font-size: 14px;
           font-weight: 500;
           letter-spacing: 1.25%;
-          text-transform: uppercase
         `;
       case 'caption':
         return ` 
@@ -124,9 +126,9 @@ const StyledText = styled.div<{ $variant: TextVariants; $emphasis: ColorVariants
   }}
 `;
 
-function Text({ variant, emphasis = 'medium', as, children }: TextProps) {
+function Text({ variant, emphasis = 'medium', as, children, className }: TextProps) {
   return (
-    <StyledText $emphasis={emphasis} $variant={variant} as={as}>
+    <StyledText $emphasis={emphasis} $variant={variant} as={as} className={className}>
       {children}
     </StyledText>
   );

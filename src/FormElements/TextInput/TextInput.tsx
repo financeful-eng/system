@@ -9,15 +9,22 @@ export interface TextInputDefaultProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  type?: 'text' | 'password';
+  type?: string;
   label: string;
   id: string;
+  autoFocus?: boolean;
+  disabled?: boolean;
+  dataId?: string;
+  autoComplete?: string;
 }
 
 export type TextInputProps = TextInputDefaultProps & ErrorProps;
 
 const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function TextInput(
-  {
+  props: TextInputProps,
+  ref,
+) {
+  const {
     value,
     onChange,
     onBlur,
@@ -26,9 +33,11 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
     errorMessage,
     label,
     id,
-  }: TextInputProps,
-  ref,
-) {
+    autoFocus,
+    dataId,
+    disabled,
+    autoComplete,
+  } = props;
   const [raiseLabel, setRaiseLabel] = React.useState(false);
   const [isFocused, setIsFocused] = React.useState(false);
   const [error] = React.useState(validationError);
@@ -68,6 +77,10 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
           ref={ref}
           onBlur={onBlur}
           id={id}
+          data-testid={dataId}
+          disabled={disabled}
+          autoFocus={autoFocus}
+          autoComplete={autoComplete}
         />
       </InputBase>
       {error && <ErrorMessage>{errorMessage}</ErrorMessage>}

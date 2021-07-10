@@ -49,10 +49,13 @@ interface Emphasis {
 
 interface Elements {
   input: string;
+  drawer: string;
+  drawerActive: string;
 }
 
 interface Text {
   primary: string;
+  secondary: string;
 }
 
 declare module 'styled-components' {

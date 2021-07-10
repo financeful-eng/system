@@ -44,6 +44,11 @@ const Template: ComponentStory<typeof Sidebar> = (args) => (
           <SidebarItem icon={MdDashboard} text="Settings" />
           <SidebarItem icon={MdDashboard} text="Profile" />
         </SidebarSection>
+        <SidebarSection hideOnMobile>
+          <SectionLabel>Section 2</SectionLabel>
+          <SidebarItem icon={MdDashboard} text="Settings" />
+          <SidebarItem icon={MdDashboard} text="Notifications" />
+        </SidebarSection>
       </nav>
     </SidebarContent>
     <SidebarFooter>

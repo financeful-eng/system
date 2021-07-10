@@ -75,7 +75,7 @@ export type ErrorProps =
 
 type DefaultProps = WithChildren;
 
-type SelectProps = DefaultProps & ErrorProps;
+export type SelectProps = DefaultProps & ErrorProps;
 
 function Select({ children, error: validationError = false, errorMessage }: SelectProps) {
   const [error] = React.useState(validationError);

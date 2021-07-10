@@ -5,3 +5,4 @@ export * from './Navigation';
 export * from './Text';
 export * from './Avatar';
 export * from './FormElements/TextInput';
+export * from './FormElements/Select';

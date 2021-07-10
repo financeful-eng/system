@@ -7,7 +7,7 @@ export default create({
 
   //UI
   appBG: 'white',
-  appContentBg: '#292929',
+  appContentBg: '#201E26',
 
   // Text Colors
   textColor: 'black',

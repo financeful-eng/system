@@ -47,10 +47,21 @@ interface Emphasis {
   disabled: string;
 }
 
+interface BadgeProps {
+  bg: string;
+  text: string;
+}
+
 interface Elements {
   input: string;
   drawer: string;
   drawerActive: string;
+  badge: {
+    info: BadgeProps;
+    default: BadgeProps;
+    error: BadgeProps;
+    success: BadgeProps;
+  };
 }
 
 interface Text {

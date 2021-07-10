@@ -66,6 +66,24 @@ const darkTheme: DefaultTheme = {
         'linear-gradient(0deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.06)), #201E26',
       drawer: '#1D1C22',
       drawerActive: '#27262C',
+      badge: {
+        info: {
+          bg: 'rgba(54, 144, 255, 0.12)',
+          text: '#79C0FF',
+        },
+        default: {
+          bg: 'rgba(255, 255, 255, 0.04)',
+          text: 'rgba(255, 255, 255, 0.6)',
+        },
+        error: {
+          bg: 'rgba(255, 64, 54, 0.12)',
+          text: 'rgba(255, 123, 114, 1)',
+        },
+        success: {
+          bg: 'rgba(0, 245, 121, 0.12)',
+          text: 'rgba(86, 211, 100, 1)',
+        },
+      },
     },
     onSurface: {
       high: 'rgba(255, 255, 255, 0.87)',

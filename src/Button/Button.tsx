@@ -111,21 +111,27 @@ const StyledButton = styled.button<StyleProps>`
   }}
 `;
 
+type NativeButtonProps = React.AllHTMLAttributes<HTMLButtonElement>;
+
 export interface ButtonProps {
-  text: string;
-  onClick: () => void;
+  onClick: NativeButtonProps['onClick'];
   variant?: ButtonVariants;
   disabled?: boolean;
   'data-testid'?: string;
   icon?: React.ComponentType<{ className?: string }>;
   type?: 'button' | 'submit';
   fullWidth?: boolean;
+  children: React.ReactNode;
+  'aria-controls'?: NativeButtonProps['aria-controls'];
+  'aria-expanded'?: NativeButtonProps['aria-expanded'];
+  'aria-describedby'?: NativeButtonProps['aria-describedby'];
+  tabIndex?: NativeButtonProps['tabIndex'];
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   {
-    text,
     onClick,
+    children,
     variant = 'primary',
     disabled,
     type = 'button',
@@ -145,9 +151,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
       type={type}
       fullWidth={fullWidth}
       ref={ref}
+      {...props}
     >
       {IconComponent && <IconComponent className="Button-icon" />}
-      {text}
+      {children}
     </StyledButton>
   );
 });

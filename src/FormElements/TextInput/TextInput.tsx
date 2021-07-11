@@ -5,16 +5,19 @@ export type ErrorProps =
   | { error?: false; errorMessage?: never }
   | { error: true; errorMessage: string };
 
+type NativeInputProps = React.AllHTMLAttributes<HTMLInputElement>;
+
 export interface TextInputDefaultProps {
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: NonNullable<string>;
+  onChange: NonNullable<NativeInputProps['onChange']>;
+  onBlur?: NativeInputProps['onBlur'];
   type?: string;
-  id: string;
-  autoFocus?: boolean;
+  id: NonNullable<string>;
+  autoFocus?: NativeInputProps['autoFocus'];
+  autoComplete?: NativeInputProps['autoComplete'];
+  'aria-describedby'?: NativeInputProps['aria-describedby'];
   disabled?: boolean;
   dataId?: string;
-  autoComplete?: string;
   placeholder?: string;
   icon?: React.ComponentType<{ className?: string }>;
 }
@@ -39,6 +42,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
     autoComplete,
     placeholder,
     icon: IconComponent,
+    ...rest
   } = props;
 
   const [error] = React.useState(validationError);
@@ -48,6 +52,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
       <Wrapper error={error} hasIcon={!!IconComponent}>
         {IconComponent && <IconComponent className="TextInput-icon" />}
         <Input
+          {...rest}
           value={value}
           type={type}
           onChange={onChange}

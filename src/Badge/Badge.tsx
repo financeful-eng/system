@@ -36,10 +36,16 @@ const Container = styled.div<{ $type: BadgeVariants }>`
 export interface BadgeProps {
   variant?: BadgeVariants;
   value: string;
+  onClick?: React.MouseEventHandler<HTMLDivElement> | undefined;
+  className?: string;
 }
 
-function Badge({ variant = 'default', value }: BadgeProps) {
-  return <Container $type={variant}>{value}</Container>;
+function Badge({ variant = 'default', value, onClick, className }: BadgeProps) {
+  return (
+    <Container $type={variant} onClick={onClick} className={className}>
+      {value}
+    </Container>
+  );
 }
 
 export default Badge;

@@ -73,12 +73,25 @@ export type ErrorProps =
   | { error?: false; errorMessage?: never }
   | { error: true; errorMessage: string };
 
-type DefaultProps = WithChildren;
+type NativeSelectProps = React.AllHTMLAttributes<HTMLSelectElement>;
 
-export type SelectProps = DefaultProps & ErrorProps;
+export interface SelectDefaultProps extends WithChildren {
+  value: NativeSelectProps['value'];
+  onChange: NativeSelectProps['onChange'];
+  onBlur?: NativeSelectProps['onBlur'];
+}
+
+export type SelectProps = SelectDefaultProps & ErrorProps;
 
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(function Select(
-  { children, error: validationError = false, errorMessage }: SelectProps,
+  {
+    children,
+    error: validationError = false,
+    errorMessage,
+    value,
+    onChange,
+    ...rest
+  }: SelectProps,
   ref,
 ) {
   const [error] = React.useState(validationError);
@@ -87,7 +100,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(function Select(
     <>
       <Container error={error}>
         <span className="carot" />
-        <StyledSelect ref={ref}>
+        <StyledSelect {...rest} ref={ref} value={value} onChange={onChange}>
           <option value=""></option>
           {children}
         </StyledSelect>

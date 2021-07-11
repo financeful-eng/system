@@ -77,14 +77,17 @@ type DefaultProps = WithChildren;
 
 export type SelectProps = DefaultProps & ErrorProps;
 
-function Select({ children, error: validationError = false, errorMessage }: SelectProps) {
+const Select = React.forwardRef<HTMLSelectElement, SelectProps>(function Select(
+  { children, error: validationError = false, errorMessage }: SelectProps,
+  ref,
+) {
   const [error] = React.useState(validationError);
 
   return (
     <>
       <Container error={error}>
         <span className="carot" />
-        <StyledSelect>
+        <StyledSelect ref={ref}>
           <option value=""></option>
           {children}
         </StyledSelect>
@@ -92,6 +95,6 @@ function Select({ children, error: validationError = false, errorMessage }: Sele
       {error && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </>
   );
-}
+});
 
 export default Select;

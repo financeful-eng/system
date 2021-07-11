@@ -1,11 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export type ButtonVariants = 'primary' | 'secondary' | 'danger' | 'outline';
 
 type StyleProps = {
   $variant: ButtonVariants;
   hasIcon: boolean;
+  fullWidth: boolean;
 };
 const StyledButton = styled.button<StyleProps>`
   --blue: ${({ theme }) => theme.colors.blue[400]};
@@ -35,6 +36,12 @@ const StyledButton = styled.button<StyleProps>`
   & > span {
     width: 100%;
   }
+
+  ${({ fullWidth }) =>
+    fullWidth &&
+    css`
+      width: 100%;
+    `}
 
   :disabled {
     opacity: 0.5;
@@ -104,7 +111,6 @@ const StyledButton = styled.button<StyleProps>`
   }}
 `;
 
-// TODO: Add Icon Comp, (Wrapper) and make React.forwardRef
 export interface ButtonProps {
   text: string;
   onClick: () => void;
@@ -112,16 +118,23 @@ export interface ButtonProps {
   disabled?: boolean;
   'data-testid'?: string;
   icon?: React.ComponentType<{ className?: string }>;
+  type?: 'button' | 'submit';
+  fullWidth?: boolean;
 }
 
-function Button({
-  text,
-  onClick,
-  variant = 'primary',
-  disabled,
-  icon: IconComponent,
-  ...props
-}: ButtonProps) {
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+  {
+    text,
+    onClick,
+    variant = 'primary',
+    disabled,
+    type = 'button',
+    icon: IconComponent,
+    fullWidth = false,
+    ...props
+  }: ButtonProps,
+  ref,
+) {
   return (
     <StyledButton
       onClick={onClick}
@@ -129,11 +142,14 @@ function Button({
       data-testid={props['data-testid']}
       disabled={disabled}
       hasIcon={!!IconComponent}
+      type={type}
+      fullWidth={fullWidth}
+      ref={ref}
     >
       {IconComponent && <IconComponent className="Button-icon" />}
       {text}
     </StyledButton>
   );
-}
+});
 
 export default Button;

@@ -1,11 +1,11 @@
 import React from 'react';
-import styled, { DefaultTheme } from 'styled-components';
+import styled from 'styled-components';
 
 export type BadgeVariants = 'default' | 'info' | 'success' | 'error';
 
 const Container = styled.div<{ $type: BadgeVariants }>`
   border-radius: 2px;
-  padding: 4px 8px;
+  padding: 2px 8px;
   font-size: 12px;
   ${(props) => {
     switch (props.$type) {

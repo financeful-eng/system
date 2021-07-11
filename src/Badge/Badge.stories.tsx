@@ -24,11 +24,11 @@ Success.args = {
 export const Error = Template.bind({});
 Error.args = {
   variant: 'error',
-  value: 'Error',
+  value: 'Error long text',
 };
 
 export const Info = Template.bind({});
 Info.args = {
   variant: 'info',
-  value: 'Info',
+  value: '$1,123.45',
 };

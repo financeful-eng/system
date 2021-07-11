@@ -1,18 +1,139 @@
 import React from 'react';
 import styled from 'styled-components';
 
+export type ButtonVariants = 'primary' | 'secondary' | 'danger' | 'outline';
+
+type StyleProps = {
+  $variant: ButtonVariants;
+  hasIcon: boolean;
+};
+const StyledButton = styled.button<StyleProps>`
+  --blue: ${({ theme }) => theme.colors.blue[400]};
+  --blue-hover: #1e73da;
+  --secondary: ${({ theme }) => theme.colors.gray[100]};
+  --secondary-hover: ${({ theme }) => theme.colors.gray[200]};
+  --outline-bg: ${({ theme }) => theme.background};
+  --border: #333b42;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  appearance: none;
+  white-space: nowrap;
+  padding: 6px 16px;
+  border-radius: 6px;
+  max-height: 32px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition-property: background-color, color;
+  font-family: inherit;
+  box-shadow: 0px 1px 0px 0px rgba(27, 31, 35, 0.1);
+
+  & > span {
+    width: 100%;
+  }
+
+  :disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .Button-icon {
+    margin-right: 8px;
+    height: 16px;
+    width: 16px;
+    fill: currentColor;
+  }
+
+  ${(props) => {
+    switch (props.$variant) {
+      case 'primary':
+        return `
+        background: var(--blue);
+        border: 1px solid var(--blue-hover);
+        :hover {
+          background: var(--blue-hover);
+        }
+        :focus {
+          box-shadow: 0px 0px 0px 3px rgba(0, 92, 197, 0.4);
+        }
+        
+      `;
+      case 'secondary':
+        return `
+          background: var(--secondary);
+          border: 1px solid var(--border);
+          :hover  {
+              background: var(--secondary-hover);
+            }
+          :focus {
+            box-shadow: 0px 0px 0px 3px rgba(48, 54, 61, 0.4);
+          }
+       `;
+      case 'danger':
+        return `
+          border: 1px solid var(--border);
+          background: var(--outline-bg);
+          color: ${props.theme.text.danger};
+          :hover {
+            background:#CB2431;
+            color: #fff;
+          }
+          :focus {
+           box-shadow: 0px 0px 0px 3px rgba(203, 36, 49, 0.4);
+
+          }
+        `;
+      case 'outline':
+        return `
+           border: 1px solid var(--border);
+           background: transparent;
+           color: #fff;
+
+           :hover {
+             background:${props.theme.overlay.white.hover};
+           }
+           :focus {
+            box-shadow: 0px 0px 0px 3px rgba(0, 92, 197, 0.4);
+          }
+        `;
+    }
+  }}
+`;
+
+// TODO: Add Icon Comp, (Wrapper) and make React.forwardRef
 export interface ButtonProps {
   text: string;
   onClick: () => void;
+  variant?: ButtonVariants;
+  disabled?: boolean;
+  'data-testid'?: string;
+  icon?: React.ComponentType<{ className?: string }>;
 }
 
-const StyledButton = styled.button`
-  background: ${(props) => props.theme.surfaces[0]};
-  border: 1px solid ${(props) => props.theme.colors.blue['500']};
-`;
-
-function Button({ text, onClick }: ButtonProps) {
-  return <StyledButton onClick={onClick}>{text}</StyledButton>;
+function Button({
+  text,
+  onClick,
+  variant = 'primary',
+  disabled,
+  icon: IconComponent,
+  ...props
+}: ButtonProps) {
+  return (
+    <StyledButton
+      onClick={onClick}
+      $variant={variant}
+      data-testid={props['data-testid']}
+      disabled={disabled}
+      hasIcon={!!IconComponent}
+    >
+      {IconComponent && <IconComponent className="Button-icon" />}
+      {text}
+    </StyledButton>
+  );
 }
 
 export default Button;

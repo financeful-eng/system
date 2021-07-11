@@ -59,6 +59,7 @@ const darkTheme: DefaultTheme = {
   text: {
     primary: '#ffffff',
     secondary: '#666B72',
+    danger: 'rgba(203, 36, 49, 1)',
   },
   colors: {
     elements: {
@@ -99,7 +100,7 @@ const darkTheme: DefaultTheme = {
       '600': '#161819',
     },
     blue: {
-      '100': '#92C855',
+      '100': '#92C8FF',
       '200': '#68B2FF',
       '300': '#4AA1FF',
       '400': '#3690FF',

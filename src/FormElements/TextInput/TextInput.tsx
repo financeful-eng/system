@@ -1,5 +1,5 @@
 import React from 'react';
-import { ErrorMessage, Input } from './style';
+import { ErrorMessage, Input, Wrapper } from './style';
 
 export type ErrorProps =
   | { error?: false; errorMessage?: never }
@@ -16,6 +16,7 @@ export interface TextInputDefaultProps {
   dataId?: string;
   autoComplete?: string;
   placeholder?: string;
+  icon?: React.ComponentType<{ className?: string }>;
 }
 
 export type TextInputProps = TextInputDefaultProps & ErrorProps;
@@ -37,27 +38,30 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(function Te
     disabled,
     autoComplete,
     placeholder,
+    icon: IconComponent,
   } = props;
 
   const [error] = React.useState(validationError);
 
   return (
     <>
-      <Input
-        value={value}
-        type={type}
-        onChange={onChange}
-        ref={ref}
-        onBlur={onBlur}
-        id={id}
-        data-testid={dataId}
-        disabled={disabled}
-        autoFocus={autoFocus}
-        autoComplete={autoComplete}
-        placeholder={placeholder}
-        error={error}
-      />
-
+      <Wrapper error={error} hasIcon={!!IconComponent}>
+        {IconComponent && <IconComponent className="TextInput-icon" />}
+        <Input
+          value={value}
+          type={type}
+          onChange={onChange}
+          ref={ref}
+          onBlur={onBlur}
+          id={id}
+          data-testid={dataId}
+          disabled={disabled}
+          autoFocus={autoFocus}
+          autoComplete={autoComplete}
+          placeholder={placeholder}
+          error={error}
+        />
+      </Wrapper>
       {error && <ErrorMessage aria-describedby={id}>{errorMessage}</ErrorMessage>}
     </>
   );

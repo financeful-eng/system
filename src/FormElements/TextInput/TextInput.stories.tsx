@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { TextInput } from '.';
+import { BsSearch } from 'react-icons/bs';
 
 export default {
   title: 'FormElements/TextInput',
@@ -30,4 +31,5 @@ Default.args = {
   value: '',
   id: 'default-input',
   placeholder: 'Placeholder',
+  icon: BsSearch,
 };

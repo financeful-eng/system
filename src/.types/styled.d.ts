@@ -67,6 +67,7 @@ interface Elements {
 interface Text {
   primary: string;
   secondary: string;
+  danger: string;
 }
 
 declare module 'styled-components' {

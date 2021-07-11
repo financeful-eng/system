@@ -1,31 +1,26 @@
 import styled, { css } from 'styled-components';
 
-export const Input = styled.input<{ error: boolean }>`
+type WrapperProps = {
+  hasIcon: boolean;
+  error: boolean;
+};
+export const Wrapper = styled.div<WrapperProps>`
   --error-shadow: 0px 0px 0px 3px rgba(255, 64, 54, 0.4);
   --shadow: 0px 0px 0px 3px rgba(3, 102, 214, 0.4);
   --blue: ${({ theme }) => theme.colors.blue[400]};
   --red: ${({ theme }) => theme.colors.red[300]};
-  padding: 8px;
+  --gray: ${({ theme }) => theme.colors.onSurface.disabled};
+  display: inline-flex;
+  align-items: stretch;
   border-radius: 6px;
-  width: 100%;
-  border: 0;
-  margin: 0;
-  display: block;
-  min-width: 0;
-  letter-spacing: inherit;
-  color: ${({ theme }) => theme.text.primary};
-  font: inherit;
   background: ${({ theme }) => theme.colors.elements.input};
   border: 1px solid transparent;
+  padding: 6px 12px;
 
   &:focus,
   :focus-within {
     box-shadow: var(--shadow);
     border-color: var(--blue);
-  }
-
-  ::placeholder {
-    color: ${({ theme }) => theme.colors.onSurface.disabled};
   }
 
   ${({ error }) =>
@@ -39,6 +34,37 @@ export const Input = styled.input<{ error: boolean }>`
         border-color: var(--red);
       }
     `}
+
+  .TextInput-icon {
+    align-self: center;
+    margin-right: 16px;
+    height: 16px;
+    width: 16px;
+    color: var(--gray);
+  }
+`;
+
+export const Input = styled.input<{ error: boolean }>`
+  /* padding: 8px; */
+  width: 100%;
+  border: 0;
+  margin: 0;
+  display: block;
+  min-width: 0;
+  letter-spacing: inherit;
+  color: ${({ theme }) => theme.text.primary};
+  font: inherit;
+  background-color: transparent;
+  border-radius: 6px;
+
+  ::placeholder {
+    color: var(--gray);
+  }
+
+  :disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
 `;
 
 export const ErrorMessage = styled.p`

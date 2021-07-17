@@ -53,16 +53,43 @@ interface BadgeProps {
   text: string;
 }
 
-interface Elements {
+export interface AlertStates {
+  info: BadgeProps;
+  default: BadgeProps;
+  error: BadgeProps;
+  success: BadgeProps;
+}
+
+export interface FlashProps extends BadgeProps {
+  border: string;
+}
+
+/**
+ * Change the type of Keys of T from NewType
+ */
+export type ChangeTypeOfKeys<T extends object, Keys extends keyof T, NewType> = {
+  // Loop to every key. We gonna check if the key
+  // is assignable to Keys. If yes, change the type.
+  // Else, retain the type.
+  [key in keyof T]: key extends Keys ? NewType : T[key];
+};
+
+type AlertWithoutDefault = Omit<AlertStates, 'default'> & {
+  warn: FlashProps;
+};
+
+type FlashColors = ChangeTypeOfKeys<
+  AlertWithoutDefault,
+  'info' | 'error' | 'success',
+  FlashProps
+>;
+
+export interface Elements {
   input: string;
   drawer: string;
   drawerActive: string;
-  badge: {
-    info: BadgeProps;
-    default: BadgeProps;
-    error: BadgeProps;
-    success: BadgeProps;
-  };
+  badge: AlertStates;
+  flash: FlashColors;
   button: {
     strokeSecondary: string;
   };

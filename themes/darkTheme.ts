@@ -1,5 +1,11 @@
 import type { DefaultTheme } from 'styled-components';
-import type { ElevationVariant, OverlayStates, Devices } from '../src/.types/styled';
+import type {
+  ElevationVariant,
+  OverlayStates,
+  Devices,
+  AlertStates,
+  Elements,
+} from '../src/.types/styled';
 
 const devices: Devices = {
   mobile: '(max-width: 599px)',
@@ -50,6 +56,29 @@ const overlay: OverlayStates = {
   },
 };
 
+const flashColors: Elements['flash'] = {
+  info: {
+    bg: 'rgba(56, 139, 253, 0.1)',
+    text: '#79C0FF',
+    border: 'rgba(4, 66, 137, 0.2)',
+  },
+  success: {
+    bg: 'rgba(33, 43, 41, 1)',
+    text: '#56D364',
+    border: 'rgba(46, 160, 67, 0.2)',
+  },
+  error: {
+    bg: 'rgba(54, 35, 41, 1)',
+    text: '#FF7B72',
+    border: 'rgba(248, 81, 73, 0.4)',
+  },
+  warn: {
+    bg: '#2F2823',
+    border: 'rgba(176, 136, 0, 0.2)',
+    text: '#E3B341',
+  },
+};
+
 const darkTheme: DefaultTheme = {
   background: '#201E26',
   border: 'rgba(255, 255, 255, 0.04)',
@@ -68,6 +97,7 @@ const darkTheme: DefaultTheme = {
         'linear-gradient(0deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.06)), #201E26',
       drawer: '#1D1C22',
       drawerActive: '#27262C',
+      flash: flashColors,
       button: {
         strokeSecondary: '#333B42',
       },

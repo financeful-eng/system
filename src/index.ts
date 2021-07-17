@@ -6,5 +6,6 @@ export * from './Button';
 export * from './Badge';
 export * from './FormElements/TextInput';
 export * from './FormElements/Select';
+export * from './IconButton';
 export * from './Navigation';
 export * from './Text';

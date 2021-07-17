@@ -52,6 +52,7 @@ const overlay: OverlayStates = {
 
 const darkTheme: DefaultTheme = {
   background: '#201E26',
+  border: 'rgba(255, 255, 255, 0.04)',
   surfaces,
   elevation,
   overlay,
@@ -67,6 +68,9 @@ const darkTheme: DefaultTheme = {
         'linear-gradient(0deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.06)), #201E26',
       drawer: '#1D1C22',
       drawerActive: '#27262C',
+      button: {
+        strokeSecondary: '#333B42',
+      },
       badge: {
         info: {
           bg: 'rgba(54, 144, 255, 0.12)',

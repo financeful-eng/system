@@ -14,7 +14,7 @@ const StyledButton = styled.button<StyleProps>`
   --secondary: ${({ theme }) => theme.colors.gray[100]};
   --secondary-hover: ${({ theme }) => theme.colors.gray[200]};
   --outline-bg: ${({ theme }) => theme.background};
-  --border: #333b42;
+  --border: ${({ theme }) => theme.colors.elements.button.strokeSecondary};
   color: #fff;
   display: flex;
   justify-content: center;
@@ -104,7 +104,7 @@ const StyledButton = styled.button<StyleProps>`
              background:${props.theme.overlay.white.hover};
            }
            :focus {
-            box-shadow: 0px 0px 0px 3px rgba(0, 92, 197, 0.4);
+            box-shadow: 0px 0px 0px 3px rgba(48, 54, 61, 0.4)
           }
         `;
     }

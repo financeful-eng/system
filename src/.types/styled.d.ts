@@ -36,6 +36,7 @@ interface ElementState {
   dragged: string;
   selected: string;
 }
+
 interface OverlayStates {
   primary: ElementState;
   white: ElementState;
@@ -62,6 +63,9 @@ interface Elements {
     error: BadgeProps;
     success: BadgeProps;
   };
+  button: {
+    strokeSecondary: string;
+  };
 }
 
 interface Text {
@@ -73,6 +77,7 @@ interface Text {
 declare module 'styled-components' {
   export interface DefaultTheme {
     background: string;
+    border: string;
     surfaces: ElevationVariant;
     elevation: ElevationVariant;
     overlay: OverlayStates;

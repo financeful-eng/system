@@ -18,7 +18,9 @@
     "dist/**/*",
     "lib/**/*",
     "lib-*/**/*",
-    "types/**/*"
+    "types/**/*",
+    "*.stories.tsx",
+    "stories/**/*"
   ],
   "env": {
     "browser": true,

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text, TextProps } from '../Text';
+import { Text } from '../Text';
 
 const LabelContainer = styled.div`
   padding: 0 8px;

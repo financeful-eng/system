@@ -20,7 +20,7 @@ type ColorVariants = 'high' | 'medium' | 'disabled' | 'secondary';
 
 export interface TextProps {
   variant: TextVariants;
-  as: React.ElementType<any>;
+  as: React.ElementType;
   emphasis?: ColorVariants;
   children: React.ReactNode;
   className?: string;

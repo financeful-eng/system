@@ -3,7 +3,6 @@ import type {
   ElevationVariant,
   OverlayStates,
   Devices,
-  AlertStates,
   Elements,
 } from '../src/.types/styled';
 

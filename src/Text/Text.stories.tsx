@@ -12,3 +12,6 @@ const Template: ComponentStory<typeof Text> = ({ children, ...rest }) => (
 );
 
 export const TextTemplate = Template.bind({});
+TextTemplate.args = {
+  as: 'h3',
+};

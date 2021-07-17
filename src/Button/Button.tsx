@@ -26,7 +26,7 @@ const StyledButton = styled.button<StyleProps>`
   max-height: 32px;
   font-size: 14px;
   line-height: 20px;
-  font-weight: 500;
+  font-weight: 400;
   cursor: pointer;
   transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
   transition-property: background-color, color;

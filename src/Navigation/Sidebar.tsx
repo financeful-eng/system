@@ -86,7 +86,7 @@ export interface ChildrenProps {
 export function SectionLabel({ children }: ChildrenProps) {
   return (
     <LabelContainer>
-      <Text variant="button" emphasis="secondary" as="h3">
+      <Text variant="caption" emphasis="secondary" as="h3">
         {children}
       </Text>
     </LabelContainer>

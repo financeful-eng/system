@@ -7,7 +7,7 @@ interface ThemeProviderProps {
 }
 
 function ThemeProvider({ children }: ThemeProviderProps) {
-  <SCThemeProvider theme={darkTheme}>{children}</SCThemeProvider>;
+  return <SCThemeProvider theme={darkTheme}>{children}</SCThemeProvider>;
 }
 
 export default ThemeProvider;

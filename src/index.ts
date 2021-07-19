@@ -1,9 +1,7 @@
-export { default as Button } from './Button/Button';
-export type { ButtonProps } from './Button/Button';
-
 export * from './Avatar';
 export * from './Button';
 export * from './Badge';
+export * from './Card';
 export * from './Flash';
 export * from './FormElements/TextInput';
 export * from './FormElements/Select';

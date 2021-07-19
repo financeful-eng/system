@@ -16,7 +16,7 @@ const devices: Devices = {
 
 const surfaces: ElevationVariant = {
   '0': '#201E26',
-  '1': 'linear-gradient(0deg, #E5E5E5, #E5E5E5), #201E26',
+  '1': 'linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), #201E26',
   '2': 'linear-gradient(0deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07)), #201E26',
   '3': 'linear-gradient(0deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), #201E26',
   '4': 'linear-gradient(0deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09)), #201E26',
@@ -80,7 +80,7 @@ const flashColors: Elements['flash'] = {
 
 const darkTheme: DefaultTheme = {
   background: '#201E26',
-  border: 'rgba(255, 255, 255, 0.04)',
+  border: 'rgba(255, 255, 255, 0.12)',
   surfaces,
   elevation,
   overlay,

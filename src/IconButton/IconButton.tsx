@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import type { WithChildren } from '../.types/props';
+import VisuallyHidden from '@reach/visually-hidden';
 
 export type IconButtonVariants = 'round' | 'square';
 
@@ -67,11 +68,12 @@ export interface IconButtonProps extends WithChildren {
   'aria-expanded'?: NativeButtonProps['aria-expanded'];
   'aria-describedby'?: NativeButtonProps['aria-describedby'];
   tabIndex?: NativeButtonProps['tabIndex'];
+  hiddenText: string;
 }
 
 const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   function IconButton(
-    { children, shape, onClick, type = 'button', ...rest }: IconButtonProps,
+    { children, shape, onClick, type = 'button', hiddenText, ...rest }: IconButtonProps,
     ref,
   ) {
     return (
@@ -83,6 +85,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
         type={type}
         onClick={onClick}
       >
+        <VisuallyHidden>{hiddenText}</VisuallyHidden>
         {children}
       </ButtonRoot>
     );

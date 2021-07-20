@@ -19,9 +19,11 @@ const Template: ComponentStory<typeof IconButton> = (args) => {
 export const Round = Template.bind({});
 Round.args = {
   shape: 'round',
+  hiddenText: 'Round',
 };
 
 export const Square = Template.bind({});
 Square.args = {
   shape: 'square',
+  hiddenText: 'Square',
 };

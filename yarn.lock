@@ -1420,6 +1420,14 @@
     tiny-warning "^1.0.3"
     tslib "^2.3.0"
 
+"@reach/visually-hidden@^0.15.2":
+  version "0.15.2"
+  resolved "https://registry.yarnpkg.com/@reach/visually-hidden/-/visually-hidden-0.15.2.tgz#07794cb53f4bd23a9452d53a0ad7778711ee323f"
+  integrity sha512-suDSCuKKuqiEB4UDgwWHbrPRxNwrusZ3ImXr85kfsQXGmKptMogaq22xoaHn32NC++lzZXxdWtAJriieszzFXw==
+  dependencies:
+    prop-types "^15.7.2"
+    tslib "^2.3.0"
+
 "@rollup/plugin-commonjs@^19.0.0":
   version "19.0.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-19.0.0.tgz#8c3e71f9a66908e60d70cc1be205834ef3e45f71"

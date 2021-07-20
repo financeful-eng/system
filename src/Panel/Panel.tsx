@@ -174,16 +174,15 @@ const Body = styled.div`
   color: ${({ theme }) => theme.colors.onSurface.high};
 `;
 
-const PanelBody = React.forwardRef<HTMLDivElement, PanelBaselineProps>(function PanelBody(
-  { className, children, ...rest },
-  forwardRef,
-) {
-  return (
-    <Body {...rest} ref={forwardRef} className={className}>
-      {children}
-    </Body>
-  );
-});
+const PanelContent = React.forwardRef<HTMLDivElement, PanelBaselineProps>(
+  function PanelBody({ className, children, ...rest }, forwardRef) {
+    return (
+      <Body {...rest} ref={forwardRef} className={className}>
+        {children}
+      </Body>
+    );
+  },
+);
 
 const Actions = styled.div`
   border-top: 1px solid ${({ theme }) => theme.border};
@@ -204,4 +203,4 @@ const PanelActions = React.forwardRef<HTMLDivElement, PanelBaselineProps>(
   },
 );
 
-export { Panel, PanelHeader, PanelActions, PanelBody };
+export { Panel, PanelHeader, PanelActions, PanelContent };

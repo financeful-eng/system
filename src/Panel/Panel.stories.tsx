@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Panel, PanelHeader, PanelActions, PanelBody } from './Panel';
+import { Panel, PanelHeader, PanelActions, PanelContent } from './Panel';
 import { Button } from '../Button';
 import { AnimatePresence } from 'framer-motion';
 import { MdClose } from 'react-icons/md';
@@ -58,7 +58,7 @@ const SubChildren = (
       icon={MdClose}
     />
 
-    <PanelBody>hi</PanelBody>
+    <PanelContent>hi</PanelContent>
     <PanelActions>
       <Button variant="primary" onClick={() => alert('Save')}>
         Save

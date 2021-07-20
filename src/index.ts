@@ -8,3 +8,4 @@ export * from './FormElements/Select';
 export * from './IconButton';
 export * from './Navigation';
 export * from './Text';
+export * from './Panel';

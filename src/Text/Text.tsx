@@ -20,7 +20,7 @@ type ColorVariants = 'high' | 'medium' | 'disabled' | 'secondary';
 
 export interface TextProps {
   variant: TextVariants;
-  as: React.ElementType;
+  as?: React.ElementType;
   emphasis?: ColorVariants;
   children: React.ReactNode;
   className?: string;
@@ -126,7 +126,13 @@ const StyledText = styled.div<{ $variant: TextVariants; $emphasis: ColorVariants
   }}
 `;
 
-function Text({ variant, emphasis = 'medium', as, children, className }: TextProps) {
+function Text({
+  variant,
+  emphasis = 'medium',
+  as = 'p',
+  children,
+  className,
+}: TextProps) {
   return (
     <StyledText $emphasis={emphasis} $variant={variant} as={as} className={className}>
       {children}

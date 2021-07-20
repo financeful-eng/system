@@ -6,6 +6,7 @@ export * from './Flash';
 export * from './FormElements/TextInput';
 export * from './FormElements/Select';
 export * from './IconButton';
+export * from './IconContainer';
 export * from './Navigation';
 export * from './Text';
 export * from './Panel';

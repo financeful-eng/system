@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import IconButton from './IconButton';
-import { BsSearch } from 'react-icons/bs';
+import { MdSearch } from 'react-icons/md';
 
 export default {
   title: 'IconButton',
@@ -11,7 +11,7 @@ export default {
 const Template: ComponentStory<typeof IconButton> = (args) => {
   return (
     <IconButton {...args}>
-      <BsSearch />
+      <MdSearch />
     </IconButton>
   );
 };

@@ -25,9 +25,10 @@ const ButtonRoot = styled.button<{ $shape: IconButtonVariants }>`
     pointer-events: none;
   }
   & > svg {
-    height: 16px;
-    width: 16px;
-    vertical-align: baseline;
+    height: 24px;
+    width: 24px;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    fill: currentColor;
   }
   :hover {
     background-color: ${(props) => props.theme.overlay.white.hover};

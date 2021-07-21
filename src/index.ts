@@ -8,5 +8,6 @@ export * from './FormElements/Select';
 export * from './IconButton';
 export * from './IconContainer';
 export * from './Navigation';
-export * from './Text';
+export * from './List';
 export * from './Panel';
+export * from './Text';

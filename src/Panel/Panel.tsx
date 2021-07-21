@@ -143,17 +143,26 @@ export interface PanelHeaderProps {
   onDismiss: DefaultProps['onDismiss'];
   icon?: React.ComponentType;
   className?: string;
+  iconHiddenText?: string;
 }
 
 const PanelHeader = React.forwardRef<HTMLDivElement, PanelHeaderProps>(
-  function PanelHeader({ title, onDismiss, icon: IconComponent, className }, forwardRef) {
+  function PanelHeader(
+    { title, onDismiss, icon: IconComponent, className, iconHiddenText = 'Close' },
+    forwardRef,
+  ) {
     return (
       <Header ref={forwardRef} className={className}>
         <Text variant="h6" as="h2" emphasis="high">
           {title}
         </Text>
         {IconComponent && (
-          <IconButton onClick={onDismiss} shape="round">
+          <IconButton
+            onClick={onDismiss}
+            shape="round"
+            hiddenText={iconHiddenText}
+            data-testid="Panel-Header-IconButton"
+          >
             <IconComponent />
           </IconButton>
         )}

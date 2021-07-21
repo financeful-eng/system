@@ -1,41 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 import type { DefaultTheme } from 'styled-components';
-import type { FlashProps as FlashColorOptions } from '../.types/styled';
+import type {
+  FlashProps as FlashColorOptions,
+  Elements,
+  AlertWithoutDefault,
+} from '../.types/styled';
 import type { WithChildren } from '../.types/props';
 
-export type FlashVariants = 'info' | 'success' | 'error' | 'warn';
+export type FlashVariants = keyof AlertWithoutDefault;
 
 const getColors = (theme: DefaultTheme, key: FlashVariants): FlashColorOptions => {
   const flash = theme.colors.elements.flash;
-  switch (key) {
-    case 'error':
-      return {
-        bg: flash.error.bg,
-        border: flash.error.border,
-        text: flash.error.text,
-      };
-    case 'warn':
-      return {
-        bg: flash.warn.bg,
-        border: flash.warn.border,
-        text: flash.warn.text,
-      };
-    case 'success':
-      return {
-        bg: flash.success.bg,
-        border: flash.success.border,
-        text: flash.success.text,
-      };
-    case 'info':
-      return {
-        bg: flash.info.bg,
-        border: flash.info.border,
-        text: flash.info.text,
-      };
-    default:
-      throw new Error('Unsupported flash variant');
-  }
+  return {
+    bg: flash[key].bg,
+    text: flash[key].text,
+    border: flash[key].border,
+  };
 };
 
 const getRootStyles = (theme: DefaultTheme, key: FlashVariants) => {
@@ -84,8 +65,8 @@ const FlashRoot = styled.div<{ $variant: FlashVariants; full: boolean }>`
         return getRootStyles(props.theme, 'error');
       case 'success':
         return getRootStyles(props.theme, 'success');
-      case 'warn':
-        return getRootStyles(props.theme, 'warn');
+      case 'warning':
+        return getRootStyles(props.theme, 'warning');
     }
   }}
 `;

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled, { DefaultTheme } from 'styled-components';
-import type { ElevationVariant } from '../.types/styled';
 import VisuallyHidden from '@reach/visually-hidden';
 
 export type IconContainerVariants = 'round' | 'square';

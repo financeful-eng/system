@@ -12,5 +12,4 @@ export type {
   ListItemProps,
   ListItemIconProps,
   ListItemTextProps,
-  ListItemActionProps,
 } from './List';

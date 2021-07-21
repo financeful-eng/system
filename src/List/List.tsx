@@ -223,9 +223,7 @@ const ActionRoot = styled.div`
   transform: translateY(-50%);
 `;
 
-interface ListItemActionProps extends WithChildren {}
-
-const ListItemAction = React.forwardRef<HTMLDivElement, ListItemActionProps>(
+const ListItemAction = React.forwardRef<HTMLDivElement, WithChildren>(
   function ListItemActionProps({ children, ...rest }, forwardRef) {
     return (
       <ActionRoot {...rest} ref={forwardRef}>
@@ -237,10 +235,4 @@ const ListItemAction = React.forwardRef<HTMLDivElement, ListItemActionProps>(
 
 //TODO: Add border bottom prop;
 export { List, ListItem, ListItemIcon, ListItemText, ListItemAction, ListItemContainer };
-export type {
-  ListProps,
-  ListItemProps,
-  ListItemIconProps,
-  ListItemTextProps,
-  ListItemActionProps,
-};
+export type { ListProps, ListItemProps, ListItemIconProps, ListItemTextProps };

@@ -1,5 +1,6 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
+import type { ElevationVariant } from '../.types/styled';
 import VisuallyHidden from '@reach/visually-hidden';
 
 export type IconContainerVariants = 'round' | 'square';
@@ -10,10 +11,12 @@ type ContainerProps = {
   $shape: IconContainerVariants;
   iconColor?: string;
   bgColor?: string;
+  surfaceLevel: keyof DefaultTheme['surfaces'];
 };
 
 const Container = styled.div<ContainerProps>`
-  background: ${({ theme, bgColor }) => (bgColor ? bgColor : theme.surfaces[1])};
+  background: ${({ theme, bgColor, surfaceLevel }) =>
+    bgColor ? bgColor : theme.surfaces[surfaceLevel]};
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -59,12 +62,11 @@ const Container = styled.div<ContainerProps>`
   }}
 `;
 
-//TODO: Add Visually Hidden from @reach ui
-
 export interface IconContainerProps {
   variant?: IconContainerVariants;
   size?: IconContainerSizes;
   icon: React.ComponentType;
+  surfaceLevel?: keyof DefaultTheme['surfaces'];
   bgColor?: string;
   iconColor?: string;
   /* 
@@ -82,9 +84,16 @@ function IconContainer({
   bgColor,
   iconColor,
   hiddenText,
+  surfaceLevel = 2,
 }: IconContainerProps) {
   return (
-    <Container $shape={variant} $size={size} bgColor={bgColor} iconColor={iconColor}>
+    <Container
+      surfaceLevel={surfaceLevel}
+      $shape={variant}
+      $size={size}
+      bgColor={bgColor}
+      iconColor={iconColor}
+    >
       <VisuallyHidden>{hiddenText}</VisuallyHidden>
       <IconComponent />
     </Container>

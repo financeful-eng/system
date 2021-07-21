@@ -10,6 +10,7 @@ import {
 } from './List';
 import { MdTrendingUp, MdMoreHoriz } from 'react-icons/md';
 import { IconButton } from '../IconButton';
+import { Text } from '../Text';
 
 export default {
   title: 'List',
@@ -81,13 +82,16 @@ const TextAndActionChildren = (
       <ListItemText primary="This is primary text" secondary="This is secondary text" />
     </ListItemContainer>
     <ListItemAction>
-      <IconButton
+      {/* <IconButton
         shape="round"
         hiddenText="icon description"
         onClick={() => console.log('hi')}
       >
         <MdMoreHoriz />
-      </IconButton>
+      </IconButton> */}
+      <Text emphasis="high" variant="subtitle2">
+        $1,500.23
+      </Text>
     </ListItemAction>
   </ListItem>
 );

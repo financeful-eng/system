@@ -1,6 +1,6 @@
 {
   "name": "@financeful-eng/system",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Financeful react componenets",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -68,6 +68,7 @@
     "lint": "eslint '**/*.{js,ts,tsx}'",
     "lint:fix": "eslint '**/*.{js,ts,tsx}' --fix",
     "prebuild": "cp package.json lib",
-    "postpublish": "cd lib & del package.json"
+    "postpublish": "cd lib & rm package.json",
+    "publish": "yarn prebuild && yarn build"
   }
 }

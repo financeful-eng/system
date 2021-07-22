@@ -92,7 +92,9 @@ const StyledButton = styled.button<StyleProps>`
       case 'danger':
         return `
           border: 1px solid var(--border);
-          background: var(--outline-bg);
+          background: ${
+            props.theme.isDark ? 'var(--outline-bg)' : 'var(--secondary-light)'
+          };
           color: ${props.theme.text.danger};
           :hover {
             background:#CB2431;

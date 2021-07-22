@@ -1,14 +1,14 @@
 {
   "name": "@financeful-eng/system",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "Financeful react componenets",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
   "author": "Aaron von Kreisler <aaronvonkreisler@gmail.com>",
   "license": "MIT",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@financeful-eng"
+  "repository": {
+    "url": "git://github.com/financeful-eng/system.git"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
@@ -63,7 +63,6 @@
     "lint": "eslint '**/*.{js,ts,tsx}'",
     "lint:fix": "eslint '**/*.{js,ts,tsx}' --fix",
     "prebuild": "cp package.json lib",
-    "postpublish": "cd lib & rm package.json",
-    "publish": "npm run build && npm publish"
+    "postpublish": "cd lib & rm package.json"
   }
 }

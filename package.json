@@ -1,6 +1,6 @@
 {
   "name": "@financeful-eng/system",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Financeful react componenets",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",

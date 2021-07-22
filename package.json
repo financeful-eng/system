@@ -10,11 +10,6 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@financeful-eng"
   },
-  "repository": {
-    "type": "git",
-    "url": "ssh://git@github.com:financeful-eng/system.git",
-    "directory": "@financeful-eng/system"
-  },
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@rollup/plugin-commonjs": "^19.0.0",

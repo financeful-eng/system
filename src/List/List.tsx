@@ -83,7 +83,11 @@ const Item = styled.li<ItemRootProps>`
   transition: background 0.2s ease-in;
   :hover {
     background: ${({ canHover, theme }) =>
-      canHover ? theme.overlay.white.hover : undefined};
+      canHover
+        ? theme.isDark
+          ? theme.overlay.white.hover
+          : theme.overlay.white.selected
+        : undefined};
     cursor: ${({ canHover }) => (canHover ? 'pointer' : 'inherit')};
   }
 
@@ -97,7 +101,9 @@ const Item = styled.li<ItemRootProps>`
   ${({ $selected, theme }) =>
     $selected &&
     css`
-      background: ${theme.overlay.white.selected};
+      background: ${theme.isDark
+        ? theme.overlay.white.selected
+        : theme.overlay.primary.focused};
     `}
 `;
 
@@ -153,7 +159,7 @@ const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(function ListIte
 
 const ListItemContainer = styled.div`
   padding-right: 48px;
-  width: 100%auto;
+  width: 100%;
   display: flex;
 `;
 

@@ -1,5 +1,5 @@
 {
-  "name": "@financeful/system",
+  "name": "@financeful-eng/system",
   "version": "1.0.0",
   "description": "Financeful react componenets",
   "main": "lib/index.js",
@@ -7,6 +7,14 @@
   "types": "lib/index.d.ts",
   "author": "Aaron von Kreisler <aaronvonkreisler@gmail.com>",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/financeful-eng"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:financeful-eng/system.git",
+    "directory": "@financeful-eng/system"
+  },
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@rollup/plugin-commonjs": "^19.0.0",
@@ -58,6 +66,8 @@
     "build-storybook": "build-storybook",
     "build": "rollup -c",
     "lint": "eslint '**/*.{js,ts,tsx}'",
-    "lint:fix": "eslint '**/*.{js,ts,tsx}' --fix"
+    "lint:fix": "eslint '**/*.{js,ts,tsx}' --fix",
+    "prebuild": "cp package.json lib",
+    "postpublish": "cd lib & del package.json"
   }
 }

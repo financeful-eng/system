@@ -8,9 +8,10 @@ export default {
 } as ComponentMeta<typeof Select>;
 
 const Template: ComponentStory<typeof Select> = (args) => {
+  const [value, setValue] = React.useState('1');
   return (
     <div style={{ width: 400 }}>
-      <Select {...args}>
+      <Select {...args} value={value} onChange={(e) => setValue(e.currentTarget.value)}>
         <option value="1">Option</option>
         <option value="2">Option</option>
         <option value="3">Option</option>

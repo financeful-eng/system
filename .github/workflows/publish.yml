@@ -26,10 +26,8 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@financeful-eng'
           always-auth: true
-      - name: Install Dependencies
       - run: yarn install
       #todo: add build step
-      - name: Publish package
       - run: yarn prebuild
       - run: yarn publish
         env:

@@ -8,7 +8,7 @@
   "author": "Aaron von Kreisler <aaronvonkreisler@gmail.com>",
   "license": "MIT",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/financeful-eng"
+    "registry": "https://npm.pkg.github.com/@financeful-eng"
   },
   "repository": {
     "type": "git",

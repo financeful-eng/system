@@ -58,10 +58,12 @@ export interface AlertStates {
   default: BadgeProps;
   error: BadgeProps;
   success: BadgeProps;
+  warning: BadgeProps;
 }
 
 export interface FlashProps extends BadgeProps {
   border: string;
+  icon?: string;
 }
 
 /**
@@ -75,12 +77,16 @@ export type ChangeTypeOfKeys<T extends object, Keys extends keyof T, NewType> = 
 };
 
 type AlertWithoutDefault = Omit<AlertStates, 'default'> & {
-  warn: FlashProps;
+  warning: FlashProps;
 };
 
+/** Takes each key from AlertWithoutDefault, which are the keys of AlertStates minus "default"
+ * and changes them to FlashProps -- which basically just adds
+ * a border and icon(optional) property
+ */
 type FlashColors = ChangeTypeOfKeys<
   AlertWithoutDefault,
-  'info' | 'error' | 'success',
+  keyof AlertWithoutDefault,
   FlashProps
 >;
 
@@ -103,6 +109,7 @@ interface Text {
 
 declare module 'styled-components' {
   export interface DefaultTheme {
+    isDark: boolean;
     background: string;
     border: string;
     surfaces: ElevationVariant;

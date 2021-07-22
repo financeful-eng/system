@@ -16,16 +16,20 @@ const getColors = (theme: DefaultTheme, key: FlashVariants): FlashColorOptions =
     bg: flash[key].bg,
     text: flash[key].text,
     border: flash[key].border,
+    icon: flash[key].icon ? flash[key].icon : flash[key].text,
   };
 };
 
 const getRootStyles = (theme: DefaultTheme, key: FlashVariants) => {
-  const { text, bg, border } = getColors(theme, key);
+  const { text, bg, border, icon } = getColors(theme, key);
 
   return `
     background-color: ${bg};
     border-color: ${border};
     color: ${text};
+    svg {
+      color: ${icon};
+    }
   `;
 };
 

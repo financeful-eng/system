@@ -109,6 +109,7 @@ interface Text {
 
 declare module 'styled-components' {
   export interface DefaultTheme {
+    name: string;
     isDark: boolean;
     background: string;
     border: string;

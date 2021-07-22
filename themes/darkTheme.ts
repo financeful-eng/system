@@ -84,6 +84,7 @@ const elements: Elements = {
 };
 
 const darkTheme: DefaultTheme = {
+  name: 'Dark Theme',
   isDark: true,
   background: '#201E26',
   border: 'rgba(255, 255, 255, 0.12)',

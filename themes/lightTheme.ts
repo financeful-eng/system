@@ -93,6 +93,7 @@ const elements: Elements = {
 };
 
 export const lightTheme: DefaultTheme = {
+  name: 'Light Theme',
   isDark: false,
   background: '#F0F2F5',
   border: '#D5D5D5',

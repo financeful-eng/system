@@ -4,9 +4,11 @@ import { ThemeProvider } from 'styled-components';
 import { darkTheme } from '../themes/darkTheme';
 import { lightTheme } from '../themes/lightTheme';
 
-const themes = [darkTheme, lightTheme];
+export const getAllThemes = () => {
+  return [darkTheme, lightTheme];
+};
 
-addDecorator(withThemesProvider(themes), ThemeProvider);
+addDecorator(withThemesProvider(getAllThemes()), ThemeProvider);
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {

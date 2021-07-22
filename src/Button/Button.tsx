@@ -15,6 +15,8 @@ const StyledButton = styled.button<StyleProps>`
   --secondary-hover: ${({ theme }) => theme.colors.gray[200]};
   --outline-bg: ${({ theme }) => theme.background};
   --border: ${({ theme }) => theme.colors.elements.button.strokeSecondary};
+  --secondary-light: #e4e6eb;
+  --secondary-hover-light: #cbcdd2;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -71,10 +73,17 @@ const StyledButton = styled.button<StyleProps>`
       `;
       case 'secondary':
         return `
-          background: var(--secondary);
+          background: ${
+            props.theme.isDark ? 'var(--secondary)' : 'var(--secondary-light)'
+          };
           border: 1px solid var(--border);
+          color: ${props.theme.isDark ? '#ffffff' : '#000000'};
           :hover  {
-              background: var(--secondary-hover);
+              background: ${
+                props.theme.isDark
+                  ? 'var(--secondary-hover)'
+                  : 'var(--secondary-hover-light)'
+              };
             }
           :focus {
             box-shadow: 0px 0px 0px 3px rgba(48, 54, 61, 0.4);

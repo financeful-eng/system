@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Text } from '../Text';
+import type { WithChildren } from '../.types/props'
 
 const LabelContainer = styled.div`
   padding: 0 8px;
@@ -79,11 +80,8 @@ const Container = styled.div`
   }
 `;
 
-export interface ChildrenProps {
-  children: React.ReactNode;
-}
 
-export function SectionLabel({ children }: ChildrenProps) {
+export function SectionLabel({ children }: WithChildren) {
   return (
     <LabelContainer>
       <Text variant="caption" emphasis="secondary" as="h3">
@@ -93,25 +91,28 @@ export function SectionLabel({ children }: ChildrenProps) {
   );
 }
 
-export type SectionProps = ChildrenProps & {
+export type SectionProps = WithChildren & {
   hideOnMobile?: boolean;
 };
+
+
+
 export function SidebarSection({ children, hideOnMobile = false }: SectionProps) {
   return <Section hideOnMobile={hideOnMobile}>{children}</Section>;
 }
 
-export function SidebarContent({ children }: ChildrenProps) {
+export function SidebarContent({ children }: WithChildren) {
   return <Content>{children}</Content>;
 }
 
-export function SidebarBrand({ children }: ChildrenProps) {
+export function SidebarBrand({ children }: WithChildren) {
   return <Brand>{children}</Brand>;
 }
 
-export function SidebarFooter({ children }: ChildrenProps) {
+export function SidebarFooter({ children }: WithChildren) {
   return <Footer>{children}</Footer>;
 }
 
-export function Sidebar({ children }: ChildrenProps) {
+export function Sidebar({ children }: WithChildren) {
   return <Container>{children}</Container>;
 }

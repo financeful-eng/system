@@ -76,27 +76,35 @@ export interface IconContainerProps {
   hiddenText: string;
 }
 
-function IconContainer({
-  variant = 'round',
-  size = 'large',
-  icon: IconComponent,
-  bgColor,
-  iconColor,
-  hiddenText,
-  surfaceLevel = 2,
-}: IconContainerProps) {
-  return (
-    <Container
-      surfaceLevel={surfaceLevel}
-      $shape={variant}
-      $size={size}
-      bgColor={bgColor}
-      iconColor={iconColor}
-    >
-      <VisuallyHidden>{hiddenText}</VisuallyHidden>
-      <IconComponent />
-    </Container>
-  );
-}
+const IconContainer = React.forwardRef<HTMLDivElement, IconContainerProps>(
+  function IconContainer(
+    {
+      variant = 'round',
+      size = 'large',
+      icon: IconComponent,
+      bgColor,
+      iconColor,
+      hiddenText,
+      surfaceLevel = 2,
+      ...rest
+    },
+    forwardRef,
+  ) {
+    return (
+      <Container
+        {...rest}
+        surfaceLevel={surfaceLevel}
+        $shape={variant}
+        $size={size}
+        bgColor={bgColor}
+        iconColor={iconColor}
+        ref={forwardRef}
+      >
+        <VisuallyHidden>{hiddenText}</VisuallyHidden>
+        <IconComponent />
+      </Container>
+    );
+  },
+);
 
 export default IconContainer;

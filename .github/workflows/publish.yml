@@ -26,6 +26,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@financeful-eng'
           always-auth: true
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
       - run: yarn install
       #todo: add build step
       - run: yarn prebuild

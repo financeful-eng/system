@@ -27,7 +27,7 @@ jobs:
           scope: '@financeful-eng'
           
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
-      - run: echo "registry=https://npm.pkg.github.com/@financeful-eng" >> .npmrc
+      - run: echo "@financeful-eng:registry=https://npm.pkg.github.com/" >> .npmrc
       - run: npm install
       #todo: add build step
       - run: npm run prebuild

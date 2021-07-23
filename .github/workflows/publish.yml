@@ -22,15 +22,15 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          always-auth: true
           node-version: 14
           registry-url: 'https://npm.pkg.github.com/'
           scope: '@financeful-eng'
           
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
-      - run: yarn install
+      - run: echo "registry=https://npm.pkg.github.com/@financeful-eng" >> .npmrc
+      - run: npm install
       #todo: add build step
-      - run: yarn prebuild
-      - run: yarn publish
+      - run: npm run prebuild
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}

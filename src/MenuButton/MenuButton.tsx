@@ -15,14 +15,30 @@ import { ChangeTypeOfKeys } from '../.types/styled';
 import { WithChildren } from '../.types/props';
 
 const StyledMenuList = styled.div`
+  --border: ${({ theme }) => theme.border};
   box-shadow: ${({ theme }) => theme.elevation[8]};
   border-radius: 6px;
+  width: 300px;
+  font-size: 14px;
+  font-weight: 400 !important;
 
+  @media ${({ theme }) => theme.devices.mobile} {
+    width: 220px;
+  }
+
+  & header.Menu-Title {
+    padding: 8px 8px 4px 16px;
+    border-bottom: 1px solid var(--border);
+    color: ${({ theme }) => theme.colors.onSurface.medium};
+  }
   /* reach ui overrides */
   &[data-reach-menu-list] {
     background: ${({ theme }) => theme.surfaces[1]};
-    padding: 8px 0;
-    border: 1px solid ${({ theme }) => theme.border};
+    padding: 0;
+  }
+
+  & > [data-reach-menu-item]:last-child {
+    margin-bottom: 4px;
   }
 
   & > [data-reach-menu-item] {
@@ -42,25 +58,6 @@ const StyledMenuList = styled.div`
     }
   }
 `;
-
-/* Remove the "Primary" variant from the button props so that
- *  any dropdown button can't be rendered as the primary color / main CTA
- *  and remove unneccessary required props that are taken care of.
- */
-
-type __ButtonComponentProps = Omit<ButtonProps, 'onClick' | 'as' | 'children'>;
-type ButtonComponentProps = ChangeTypeOfKeys<
-  __ButtonComponentProps,
-  'variant',
-  Required<ButtonVariantsMinusPrimary>
->;
-
-interface MenuButtonProps extends WithChildren {
-  buttonProps: ButtonComponentProps;
-  defaultText: string;
-  useSelectedItemAsText?: boolean;
-  'data-testid'?: string;
-}
 
 function compose(theirHandler: () => void, ourHandler: () => void): () => void {
   return () => {
@@ -91,11 +88,32 @@ function useMenuContext() {
 
 /////////////////////////////////////////////////////////////////
 
+/* Remove the "Primary" variant from the button props so that
+ *  any dropdown button can't be rendered as the primary color / main CTA
+ *  and remove unneccessary required props that are taken care of.
+ */
+
+type __ButtonComponentProps = Omit<ButtonProps, 'onClick' | 'as' | 'children'>;
+type ButtonComponentProps = ChangeTypeOfKeys<
+  __ButtonComponentProps,
+  'variant',
+  Required<ButtonVariantsMinusPrimary>
+>;
+
+interface MenuButtonProps extends WithChildren {
+  buttonProps: ButtonComponentProps;
+  defaultText: string;
+  useSelectedItemAsText?: boolean;
+  'data-testid'?: string;
+  header?: string | React.ComponentType;
+}
+
 function MenuButton({
   buttonProps,
   defaultText,
   useSelectedItemAsText = false,
   children,
+  header: HeaderComp,
   ...rest
 }: MenuButtonProps) {
   const [selectedItem, setSelectedItem] = React.useState(defaultText);
@@ -122,7 +140,14 @@ function MenuButton({
           {selectedItem}
           <Caret aria-hidden className="caret" />
         </ReachButton>
-        <MenuList as={StyledMenuList}>{children}</MenuList>
+        <MenuList as={StyledMenuList}>
+          {HeaderComp && (
+            <header className="Menu-Title">
+              {typeof HeaderComp === 'string' ? HeaderComp : <HeaderComp />}
+            </header>
+          )}
+          {children}
+        </MenuList>
       </Menu>
     </MenuContext.Provider>
   );

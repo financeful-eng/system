@@ -1,6 +1,6 @@
 {
   "name": "@financeful-eng/system",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "Financeful react componenets",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -11,16 +11,14 @@
     "access": "public"
   },
   "files": [
-    "lib",
-    "README.md"
+    "lib"
   ],
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "rollup -c",
     "lint": "eslint '**/*.{js,ts,tsx}'",
-    "lint:fix": "eslint '**/*.{js,ts,tsx}' --fix",
-    "prepublishOnly": "yarn build"
+    "lint:fix": "eslint '**/*.{js,ts,tsx}' --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",

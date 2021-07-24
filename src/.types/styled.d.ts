@@ -76,7 +76,7 @@ export type ChangeTypeOfKeys<T extends object, Keys extends keyof T, NewType> = 
   [key in keyof T]: key extends Keys ? NewType : T[key];
 };
 
-type AlertWithoutDefault = Omit<AlertStates, 'default'> & {
+export type AlertWithoutDefault = Omit<AlertStates, 'default'> & {
   warning: FlashProps;
 };
 
@@ -84,7 +84,7 @@ type AlertWithoutDefault = Omit<AlertStates, 'default'> & {
  * and changes them to FlashProps -- which basically just adds
  * a border and icon(optional) property
  */
-type FlashColors = ChangeTypeOfKeys<
+export type FlashColors = ChangeTypeOfKeys<
   AlertWithoutDefault,
   keyof AlertWithoutDefault,
   FlashProps
@@ -101,35 +101,37 @@ export interface Elements {
   };
 }
 
-interface Text {
+export interface Text {
   primary: string;
   secondary: string;
   danger: string;
 }
 
+export interface ThemeObject {
+  name: string;
+  isDark: boolean;
+  background: string;
+  border: string;
+  surfaces: ElevationVariant;
+  elevation: ElevationVariant;
+  overlay: OverlayStates;
+  devices: Devices;
+  text: Text;
+  colors: {
+    gray: ColorRange;
+    blue: ColorRange;
+    orange: ColorRange;
+    turqoise: ColorRange;
+    blurple: ColorRange;
+    purple: ColorRange;
+    red: ColorRange;
+    yellow: ColorRange;
+    green: ColorRange;
+    onSurface: Emphasis;
+    elements: Elements;
+  };
+}
+
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    name: string;
-    isDark: boolean;
-    background: string;
-    border: string;
-    surfaces: ElevationVariant;
-    elevation: ElevationVariant;
-    overlay: OverlayStates;
-    devices: Devices;
-    text: Text;
-    colors: {
-      gray: ColorRange;
-      blue: ColorRange;
-      orange: ColorRange;
-      turqoise: ColorRange;
-      blurple: ColorRange;
-      purple: ColorRange;
-      red: ColorRange;
-      yellow: ColorRange;
-      green: ColorRange;
-      onSurface: Emphasis;
-      elements: Elements;
-    };
-  }
+  export interface DefaultTheme extends ThemeObject {}
 }

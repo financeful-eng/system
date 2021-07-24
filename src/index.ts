@@ -1,3 +1,7 @@
+// Style types
+
+export type { ChangeTypeOfKeys, ThemeObject } from './.types/styled';
+
 // Themeing
 
 export { darkTheme } from './themes/darkTheme';

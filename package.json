@@ -1,6 +1,6 @@
 {
   "name": "@financeful-eng/system",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Financeful react componenets",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -20,7 +20,6 @@
     "build": "rollup -c",
     "lint": "eslint '**/*.{js,ts,tsx}'",
     "lint:fix": "eslint '**/*.{js,ts,tsx}' --fix",
-    "prebuild": "cp package.json lib",
     "prepublishOnly": "yarn build"
   },
   "devDependencies": {

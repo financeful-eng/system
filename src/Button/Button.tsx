@@ -2,12 +2,14 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 export type ButtonVariants = 'primary' | 'secondary' | 'danger' | 'outline';
+export type ButtonVariantsMinusPrimary = 'secondary' | 'danger' | 'outline';
 
 type StyleProps = {
   $variant: ButtonVariants;
   hasIcon: boolean;
   fullWidth: boolean;
 };
+
 const StyledButton = styled.button<StyleProps>`
   --blue: ${({ theme }) => theme.colors.blue[400]};
   --blue-hover: #1e73da;
@@ -35,7 +37,7 @@ const StyledButton = styled.button<StyleProps>`
   font-family: inherit;
   box-shadow: 0px 1px 0px 0px rgba(27, 31, 35, 0.1);
 
-  & > span {
+  & > span :not(span.caret, span.carot) {
     width: 100%;
   }
 
@@ -69,7 +71,7 @@ const StyledButton = styled.button<StyleProps>`
         :focus {
           box-shadow: 0px 0px 0px 3px rgba(0, 92, 197, 0.4);
         }
-        
+
       `;
       case 'secondary':
         return `
@@ -125,8 +127,8 @@ const StyledButton = styled.button<StyleProps>`
 type NativeButtonProps = React.AllHTMLAttributes<HTMLButtonElement>;
 
 export interface ButtonProps {
-  onClick: NativeButtonProps['onClick'];
-  variant?: ButtonVariants;
+  onClick?: NativeButtonProps['onClick'];
+  variant?: ButtonVariants | ButtonVariantsMinusPrimary;
   disabled?: boolean;
   'data-testid'?: string;
   icon?: React.ComponentType<{ className?: string }>;
@@ -137,23 +139,27 @@ export interface ButtonProps {
   'aria-expanded'?: NativeButtonProps['aria-expanded'];
   'aria-describedby'?: NativeButtonProps['aria-describedby'];
   tabIndex?: NativeButtonProps['tabIndex'];
+  as?: React.ElementType;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   {
     onClick,
     children,
-    variant = 'primary',
+    variant = 'secondary',
     disabled,
     type = 'button',
     icon: IconComponent,
     fullWidth = false,
+    as,
     ...props
   }: ButtonProps,
   ref,
 ) {
   return (
     <StyledButton
+      {...props}
+      as={as}
       onClick={onClick}
       $variant={variant}
       data-testid={props['data-testid']}
@@ -162,7 +168,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
       type={type}
       fullWidth={fullWidth}
       ref={ref}
-      {...props}
     >
       {IconComponent && <IconComponent className="Button-icon" />}
       {children}

@@ -1,5 +1,5 @@
 import type { DefaultTheme } from 'styled-components';
-import type { ElevationVariant, OverlayStates, Elements } from '../src/.types/styled';
+import type { ElevationVariant, OverlayStates, Elements } from '../.types/styled';
 import { primaryOverlay, devices, elevation, COLORS } from './shared';
 
 const surfaces: ElevationVariant = {

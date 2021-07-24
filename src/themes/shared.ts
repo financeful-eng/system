@@ -1,5 +1,5 @@
 import { DefaultTheme } from 'styled-components';
-import type { ElevationVariant, OverlayStates, Devices } from '../src/.types/styled';
+import type { ElevationVariant, OverlayStates, Devices } from '../.types/styled';
 
 export const devices: Devices = {
   mobile: '(max-width: 599px)',

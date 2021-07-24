@@ -1,7 +1,7 @@
 // Themeing
 
-export { darkTheme } from '../themes/darkTheme';
-export { lightTheme } from '../themes/lightTheme';
+export { darkTheme } from './themes/darkTheme';
+export { lightTheme } from './themes/lightTheme';
 
 // Components
 export { Avatar } from './Avatar';

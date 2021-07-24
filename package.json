@@ -10,6 +10,8 @@
   "publishConfig": {
     "access": "public"
   },
+  "prebuild": "cp package.json lib",
+  "prepublishOnly": "yarn build",
   "files": [
     "lib"
   ],

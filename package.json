@@ -20,7 +20,8 @@
     "build-storybook": "build-storybook",
     "build": "rollup -c",
     "lint": "eslint '**/*.{js,ts,tsx}'",
-    "lint:fix": "eslint '**/*.{js,ts,tsx}' --fix"
+    "lint:fix": "eslint '**/*.{js,ts,tsx}' --fix",
+    "generate": "node ./scripts/generate.js"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
@@ -37,6 +38,7 @@
     "@typescript-eslint/eslint-plugin": "^4.28.1",
     "@typescript-eslint/parser": "^4.28.1",
     "babel-loader": "^8.2.2",
+    "colors": "^1.4.0",
     "eslint": "^7.30.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",

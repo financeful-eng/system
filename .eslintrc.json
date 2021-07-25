@@ -8,8 +8,10 @@
   "extends": [
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:testing-library/react"
   ],
+  "plugins": ["react-hooks", "testing-library"],
   "ignorePatterns": [
     "node_modules",
     ".cache",
@@ -40,6 +42,10 @@
     "react-hooks/exhaustive-deps": "error"
   },
   "overrides": [
+    {
+      "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+      "extends": ["plugin:testing-library/react"]
+    },
     {
       "parserOptions": {
         "project": "tsconfig.json"

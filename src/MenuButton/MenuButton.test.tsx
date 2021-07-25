@@ -1,10 +1,7 @@
 import React from 'react';
-// import { render } from '@test-utils';
 import { render } from '../utils/test-utils';
 import userEvent from '@testing-library/user-event';
 import { MenuButton, MenuItem, MenuButtonProps } from './MenuButton';
-
-// The useSelectedText... prop works and renders the text in the <button></button>
 
 describe('Menu Button header', () => {
   it('Accepts and renders a ComponentType for the header prop', () => {

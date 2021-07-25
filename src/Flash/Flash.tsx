@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import type { DefaultTheme } from 'styled-components';
 import type {
   FlashProps as FlashColorOptions,
-  Elements,
   AlertWithoutDefault,
 } from '../.types/styled';
 import type { WithChildren } from '../.types/props';

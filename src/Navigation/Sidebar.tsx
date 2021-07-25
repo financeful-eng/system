@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Text } from '../Text';
-import type { WithChildren } from '../.types/props'
+import type { WithChildren } from '../.types/props';
 
 const LabelContainer = styled.div`
   padding: 0 8px;
@@ -80,7 +80,6 @@ const Container = styled.div`
   }
 `;
 
-
 export function SectionLabel({ children }: WithChildren) {
   return (
     <LabelContainer>
@@ -94,8 +93,6 @@ export function SectionLabel({ children }: WithChildren) {
 export type SectionProps = WithChildren & {
   hideOnMobile?: boolean;
 };
-
-
 
 export function SidebarSection({ children, hideOnMobile = false }: SectionProps) {
   return <Section hideOnMobile={hideOnMobile}>{children}</Section>;

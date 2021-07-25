@@ -23,5 +23,5 @@
     "typeRoots": ["src/.types", "node_modules/@types"]
   },
   "include": ["src/.types/**/*.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx", "src"],
-  "exclude": ["node_modules", "lib", "src**/*.stories.tsx", "src/**/*.test.tsx"]
+  "exclude": ["node_modules", "lib", "src**/*.stories.tsx"]
 }

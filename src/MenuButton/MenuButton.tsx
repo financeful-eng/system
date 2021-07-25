@@ -130,7 +130,7 @@ function MenuButton({
 
   const contextValue = React.useMemo<IMenuContext>(
     () => ({ useSelectedItemAsText, setSelectedItemHandler }),
-    [useSelectedItemAsButtonText],
+    [useSelectedItemAsText, setSelectedItemHandler],
   );
 
   return (
